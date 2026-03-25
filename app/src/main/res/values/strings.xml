@@ -23,4 +23,5 @@
     <string name="description">Descritption :</string>
     <string name="code_barre">Code barre</string>
     <string name="confirmer_supp">Si vous poursuivez, vous perdrez la carte (ciao ciao)</string>
+    <string name="logo">Logo Enseigne</string>
 </resources>
