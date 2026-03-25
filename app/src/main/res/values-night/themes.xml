@@ -13,6 +13,7 @@
         <item name="colorSurfaceVariant">@color/surface_variant_dark</item>
         <item name="colorOnSurface">@color/white</item>
         <item name="colorOnSurfaceVariant">@color/text_dark</item>
+        <item name="colorOnSecondaryContainer">#DEDEDE</item>
         
         <item name="android:colorBackground">@color/background_dark</item>
 

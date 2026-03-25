@@ -402,7 +402,7 @@ public class MenuActivity extends AppCompatActivity {
             return;
         }
         try {
-            String filename = "fidelity_cards_export.json";
+            String filename = "cartes_" + dataManager.getActiveProfile().getName() + "_export.json";
             FileOutputStream fos = openFileOutput(filename, MODE_PRIVATE);
             fos.write(json.getBytes());
             fos.close();

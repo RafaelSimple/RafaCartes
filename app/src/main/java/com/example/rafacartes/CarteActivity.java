@@ -78,18 +78,7 @@ public class CarteActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
         btnEdit.setOnClickListener(v -> showEditDialog());
-        btnSupp.setOnClickListener(v -> {
-            View view = LayoutInflater.from(this).inflate(R.layout.dialog_rm_card, null);
-            new MaterialAlertDialogBuilder(this)
-                    .setTitle("Voulez-vous supprimer la carte ?")
-                    .setView(view)
-                    .setNegativeButton("Non", null)
-                    .setPositiveButton("Oui", (d, w) -> {
-                        dataManager.deleteCard(profileId, currentCard.getId());
-                        finish();
-                    })
-                    .show();
-        });
+        btnSupp.setOnClickListener(v -> suppCarte(profileId, currentCard));
 
 
         // Launcher pour choisir une image
@@ -206,5 +195,18 @@ public class CarteActivity extends AppCompatActivity {
             Toast.makeText(this, "Erreur lors de la sauvegarde de l'image", Toast.LENGTH_SHORT).show();
             return null;
         }
+    }
+
+    private void suppCarte(String profileId, Card carteActuelle){
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_rm_card, null);
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Voulez-vous supprimer la carte ?")
+                .setView(view)
+                .setNegativeButton("Non", null)
+                .setPositiveButton("Oui", (d, w) -> {
+                    dataManager.deleteCard(profileId, carteActuelle.getId());
+                    finish();
+                })
+                .show();
     }
 }
