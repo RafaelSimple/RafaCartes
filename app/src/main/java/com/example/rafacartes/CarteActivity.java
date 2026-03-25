@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -77,7 +78,18 @@ public class CarteActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
         btnEdit.setOnClickListener(v -> showEditDialog());
-        btnSupp.setOnClickListener(v -> {dataManager.deleteCard(profileId, currentCard.getId()); finish();});
+        btnSupp.setOnClickListener(v -> {
+            View view = LayoutInflater.from(this).inflate(R.layout.dialog_rm_card, null);
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle("Voulez-vous supprimer la carte ?")
+                    .setView(view)
+                    .setNegativeButton("Non", null)
+                    .setPositiveButton("Oui", (d, w) -> {
+                        dataManager.deleteCard(profileId, currentCard.getId());
+                        finish();
+                    })
+                    .show();
+        });
 
 
         // Launcher pour choisir une image
