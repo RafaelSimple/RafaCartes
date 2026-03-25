@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RafaCartes</string>
+    <string name="bonjour">Bonjour</string>
+    <string name="trier_les_cartes">Trier les cartes</string>
+    <string name="ajouter_carte">Ajouter carte</string>
+    <string name="menu">Menu</string>
+    <string name="importer">Importer les cartes</string>
+    <string name="exporter">Exporter les cartes</string>
+    <string name="changer_profil">Changer de profil</string>
+    <string name="creer_profil">Créer un profil</string>
+    <string name="modifier_profil">Modifier le profil</string>
+    <string name="supprimer_profil">Supprimer le profil</string>
+    <string name="modifier_carte">Modifier la carte</string>
+    <string name="ajouter_carte_titre">Ajouter une carte</string>
+    <string name="retour">Retour</string>
+    <string name="modifier">Modifier</string>
+    <string name="annuler">Annuler</string>
+    <string name="sauvegarder">Sauvegarder</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="ok">OK</string>
+    <string name="creer">Créer</string>
+    <string name="description">Descritption :</string>
+    <string name="code_barre">Code barre</string>
+</resources>

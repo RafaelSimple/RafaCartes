@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Couleurs primaires -->
+    <color name="primary">#FF5C6BC0</color>
+    <color name="primary_dark">#FF3949AB</color>
+    <color name="primary_light">#FF9FA8DA</color>
+
+    <color name="accent">#FF26C6DA</color>
+
+    <!-- Surfaces -->
+    <color name="surface">#FFFAFAFA</color>
+    <color name="surface_variant">#FFF0F0F5</color>
+    <color name="background">#FFF5F5F5</color>
+    <color name="text_light">#FF000000</color>
+
+    <color name="surface_dark">#FF1E1E2E</color>
+    <color name="surface_variant_dark">#FF2A2A3E</color>
+    <color name="background_dark">#FF181825</color>
+    <color name="text_dark">#FFFFFFFF</color>
+
+    <!-- Reste -->
+    <color name="green">#41B846</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Dossier interne de l'app (getFilesDir()) -->
+    <files-path
+        name="internal_files"
+        path="." />
+</paths>

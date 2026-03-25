@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Couvercle -->
+    <path
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M9,3v1H4v2h16V4h-5V3H9z"/>
+    <!-- Corps de la poubelle -->
+    <path
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M6,8l1.5,13h9L18,8H6zM10,19H8.5l-0.75-9H10V19zM13,19h-2v-9h2V19zM15.5,19H14v-9h1.25L15.5,19z"/>
+</vector>
