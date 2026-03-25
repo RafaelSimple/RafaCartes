@@ -239,6 +239,13 @@ public class MenuActivity extends AppCompatActivity {
                 .setPositiveButton("OK", (d, w) -> refreshUI())
                 .show();
 
+        LinearLayout btnAjouter = view.findViewById(R.id.btn_add_profile);
+
+        btnAjouter.setOnClickListener(view1 -> {
+            showCreateProfileDialog(false);
+            refreshUI();
+        });
+
         // Override pour ne pas fermer automatiquement sur "Modifier"
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
             dialog.dismiss();
