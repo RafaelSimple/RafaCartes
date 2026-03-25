@@ -48,6 +48,7 @@ public class MenuActivity extends AppCompatActivity {
     private CardAdapter cardAdapter;
     private TextView tvBonjour;
     private TextView tvTrier;
+    private LinearLayout btnAjouter;
 
     // Tri actuel : 0=alpha, 1=date, 2=usage
     private int sortMode = 0;
@@ -239,14 +240,15 @@ public class MenuActivity extends AppCompatActivity {
                 .setPositiveButton("OK", (d, w) -> refreshUI())
                 .show();
 
+
         LinearLayout btnAjouter = view.findViewById(R.id.btn_add_profile);
 
         btnAjouter.setOnClickListener(view1 -> {
+            dialog.dismiss();
             showCreateProfileDialog(false);
-            refreshUI();
         });
 
-        // Override pour ne pas fermer automatiquement sur "Modifier"
+
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
             dialog.dismiss();
             showEditProfilesDialog();
