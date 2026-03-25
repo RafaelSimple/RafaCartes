@@ -3,8 +3,7 @@
 
 RafaCartes est une application Android native développée en Java qui vous permet de stocker et organiser toutes vos cartes de fidélité au même endroit.
 On ne peut pas encore scanner ou numériser avec la caméra, c'est pour bientôt hihi 👀
-En attendant, vous pouvez demander à une IA de vous les digitaliser, exporter un JSON depuis mon app, donnez-lui en modèle ainsi que des photos de vos cartes.
-Il vous générera le JSON et vous n'aurez plus qu'à l'importer !!
+En attendant, vous pouvez demander à une IA de vous les digitaliser : exporter un JSON depuis mon app pour que l'IA puisse connaître la structure, donnez lui ensuite les photos de vos cartes et elle vous générera le JSON, vous n'aurez plus qu'à l'importer dans l'app !!
 
 ### ✨ Fonctionnalités Principales
 
@@ -28,7 +27,7 @@ Il vous générera le JSON et vous n'aurez plus qu'à l'importer !!
 
 Vous pouvez simplement télécharger et lancer l'apk à chaque release !
 
-sinon, pour les impatients :
+Sinon, pour les impatients :
 
 1. Clonez ce dépôt : `git clone https://github.com/votre-nom/rafacartes.git`
 2. Ouvrez le projet dans **Android Studio**.
@@ -67,6 +66,9 @@ Then simply import it and there you have it !
 
 ###  Getting Started
 
+You can simply download the .apk from the latest release !
+
+If you want to use the version in developpment :
 1. Clone this repository: `git clone https://github.com/your-username/rafacartes.git`
 2. Open the project in **Android Studio**.
 3. Sync Gradle to ensure the ZXing dependency is downloaded.
