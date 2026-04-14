@@ -47,7 +47,7 @@ public class Util {
         colors.add(new ColorItem("Bleu-Makro", Color.parseColor("#002470")));
         colors.add(new ColorItem("Bleu-Norauto", Color.parseColor("#002B6F")));
         colors.add(new ColorItem("Or-Fnac", Color.parseColor("#EBB200")));
-        colors.add(new ColorItem("Indigo", Color.parseColor("#3949AB")));
+        colors.add(new ColorItem("Bleu Clair", Color.parseColor("#90D5FF")));
         colors.add(new ColorItem("Cyan", Color.parseColor("#00ACC1")));
         colors.add(new ColorItem("Vert clair-DrMax", Color.parseColor("#6EBA3A")));
         colors.add(new ColorItem("VertOlive-YvesRocher", Color.parseColor("#89993E")));
