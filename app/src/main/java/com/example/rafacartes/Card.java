@@ -1,5 +1,6 @@
 package com.example.rafacartes;
 
+import android.graphics.Color;
 public class Card {
     private String id;
     private String enseigneName;
@@ -8,6 +9,7 @@ public class Card {
     private String description;
     private int usageCount;
     private long dateAdded;
+    private int color;
 
     public Card() {}
 
@@ -20,6 +22,7 @@ public class Card {
         this.description = description;
         this.usageCount = 0;
         this.dateAdded = System.currentTimeMillis();
+        this.color = 0;
     }
 
     // Getters & Setters
@@ -44,4 +47,7 @@ public class Card {
 
     public long getDateAdded() { return dateAdded; }
     public void setDateAdded(long dateAdded) { this.dateAdded = dateAdded; }
+
+    public int getColor() {return color; }
+    public void setColor(int color) {this.color = color; }
 }

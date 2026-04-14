@@ -1,5 +1,6 @@
 package com.example.rafacartes;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,6 +38,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+
+import static com.example.rafacartes.Util.dpToPx;
+import static com.example.rafacartes.Util.showColorPickerDialog;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -101,7 +105,7 @@ public class MenuActivity extends AppCompatActivity {
     private void refreshUI() {
         Profile active = dataManager.getActiveProfile();
         if (active != null) {
-            tvBonjour.setText("Salut " + active.getName() + " !");
+            tvBonjour.setText("Bonjour " + active.getName() + " !");
             currentCards.clear();
             currentCards.addAll(getSortedCards(dataManager.getCards(active.getId())));
             cardAdapter.notifyDataSetChanged();
@@ -184,6 +188,20 @@ public class MenuActivity extends AppCompatActivity {
         EditText etName = view.findViewById(R.id.et_enseigne);
         EditText etBarcode = view.findViewById(R.id.et_barcode);
         EditText etDesc = view.findViewById(R.id.et_description);
+        View btnChooseColor = view.findViewById(R.id.btn_choose_color);
+        View colorPreview = view.findViewById(R.id.view_color_preview);
+
+        final int[] selectedColor = {Color.parseColor("#1E88E5")}; // Bleu par défaut
+        colorPreview.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(selectedColor[0]));
+
+        btnChooseColor.setOnClickListener(v ->
+                showColorPickerDialog(this, selectedColor[0], color -> {
+                    selectedColor[0] = color;
+                    colorPreview.setBackgroundTintList(
+                            android.content.res.ColorStateList.valueOf(color));
+                })
+        );
 
         new MaterialAlertDialogBuilder(this)
                 .setTitle("Ajouter une carte")
@@ -197,6 +215,7 @@ public class MenuActivity extends AppCompatActivity {
                         return;
                     }
                     Card card = new Card(null, name, barcode, "", desc);
+                    card.setColor(selectedColor[0]);
                     dataManager.addCard(dataManager.getActiveProfileId(), card);
                     refreshUI();
                 })
@@ -279,9 +298,9 @@ public class MenuActivity extends AppCompatActivity {
         List<View> colorViews = new ArrayList<>();
         for (int c : colors) {
             View circle = new View(this);
-            int size = dpToPx(40);
+            int size = dpToPx(this, 40);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
-            lp.setMargins(dpToPx(4), 0, dpToPx(4), 0);
+            lp.setMargins(dpToPx(this,4), 0, dpToPx(this, 4), 0);
             circle.setLayoutParams(lp);
             circle.setBackgroundResource(R.drawable.circle_color);
             circle.setBackgroundTintList(android.content.res.ColorStateList.valueOf(c));
@@ -466,7 +485,4 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
-    private int dpToPx(int dp) {
-        return Math.round(dp * getResources().getDisplayMetrics().density);
-    }
 }

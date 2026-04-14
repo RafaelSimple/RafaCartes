@@ -1,5 +1,7 @@
 package com.example.rafacartes;
 
+import static com.example.rafacartes.Util.showColorPickerDialog;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -112,6 +114,12 @@ public class CarteActivity extends AppCompatActivity {
 
         generateBarcode(currentCard.getBarcodeNumber());
         tvBarcode.setText(currentCard.getBarcodeNumber());
+        int displayColor = currentCard.getColor();
+        if (displayColor == 0) {
+            // Résolution dynamique pour cet écran
+            displayColor = Util.getThemeColor(this, android.R.attr.colorButtonNormal);
+        }
+        findViewById(android.R.id.content).setBackgroundColor(displayColor);
     }
 
     private void generateBarcode(String content) {
@@ -136,6 +144,21 @@ public class CarteActivity extends AppCompatActivity {
         EditText etBarcode = view.findViewById(R.id.et_barcode_edit);
         TextView tvImageStatus = view.findViewById(R.id.tv_image_status);
         View btnChooseImage = view.findViewById(R.id.btn_choose_image);
+        View btnChooseColor = view.findViewById(R.id.btn_choose_color);
+        View colorPreview = view.findViewById(R.id.view_color_preview);
+
+        final int[] selectedColor = {currentCard.getColor()};
+        colorPreview.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(selectedColor[0]));
+
+        btnChooseColor.setOnClickListener(v ->
+                showColorPickerDialog(this, selectedColor[0], color -> {
+                    selectedColor[0] = color;
+                    colorPreview.setBackgroundTintList(
+                            android.content.res.ColorStateList.valueOf(color));
+                })
+        );
+
 
         etName.setText(currentCard.getEnseigneName());
         etDesc.setText(currentCard.getDescription());
@@ -170,7 +193,7 @@ public class CarteActivity extends AppCompatActivity {
                             currentCard.setImageFileName(savedFilename);
                         }
                     }
-
+                    currentCard.setColor(selectedColor[0]);
                     dataManager.updateCard(profileId, currentCard);
                     renderCard();
                 })

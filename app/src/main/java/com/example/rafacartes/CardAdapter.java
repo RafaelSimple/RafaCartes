@@ -43,7 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         Card card = cards.get(position);
 
-        // Description
+        // description
         String desc = card.getDescription();
         if (desc != null && !desc.isEmpty()) {
             holder.tvDescription.setVisibility(View.VISIBLE);
@@ -52,7 +52,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             holder.tvDescription.setVisibility(View.GONE);
         }
 
-        // Image ou nom
+        // img
         String imgFile = card.getImageFileName();
         if (imgFile != null && !imgFile.isEmpty()) {
             File f = new File(context.getFilesDir(), imgFile);
@@ -71,6 +71,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         } else {
             showNameFallback(holder, card);
         }
+        int cardColor = card.getColor();
+        if (cardColor == 0) {
+            cardColor = Util.getThemeColor(context, android.R.attr.colorButtonNormal);
+        }
+
+        holder.itemView.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(cardColor));
 
         holder.itemView.setOnClickListener(v -> listener.onCardClick(card));
     }

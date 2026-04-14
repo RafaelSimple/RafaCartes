@@ -2,6 +2,7 @@ package com.example.rafacartes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +18,8 @@ public class DataManager {
     private static final String KEY_PROFILES = "profiles";
     private static final String KEY_CARDS = "cards";
     private static final String KEY_ACTIVE_PROFILE = "active_profile_id";
+
+    private static final int DEFAULT_CARD_COLOR = 0;
 
     private final SharedPreferences prefs;
 
@@ -137,6 +140,9 @@ public class DataManager {
                 );
                 c.setUsageCount(obj.optInt("usageCount", 0));
                 c.setDateAdded(obj.optLong("dateAdded", System.currentTimeMillis()));
+                // optInt avec DEFAULT_CARD_COLOR pour la compatibilité avec les anciennes cartes
+                // qui n'ont pas encore de champ "color" en base
+                c.setColor(obj.optInt("color", DEFAULT_CARD_COLOR));
                 cards.add(c);
             }
         } catch (JSONException e) {
@@ -157,6 +163,7 @@ public class DataManager {
                 obj.put("description", c.getDescription() != null ? c.getDescription() : "");
                 obj.put("usageCount", c.getUsageCount());
                 obj.put("dateAdded", c.getDateAdded());
+                obj.put("color", c.getColor()); // ← nouveau
                 arr.put(obj);
             }
             prefs.edit().putString(cardKey(profileId), arr.toString()).apply();
@@ -208,6 +215,7 @@ public class DataManager {
                 cObj.put("description", c.getDescription() != null ? c.getDescription() : "");
                 cObj.put("usageCount", c.getUsageCount());
                 cObj.put("dateAdded", c.getDateAdded());
+                cObj.put("color", c.getColor()); // ← nouveau
                 cardsArr.put(cObj);
             }
             root.put("cards", cardsArr);
@@ -272,8 +280,9 @@ public class DataManager {
                 String imageFileName = cObj.optString("imageFileName", "");
                 int usageCount = cObj.optInt("usageCount", 0);
                 long dateAdded = cObj.optLong("dateAdded", System.currentTimeMillis());
+                int color = cObj.optInt("color", DEFAULT_CARD_COLOR); // ← nouveau
 
-                // Vérifier doublon : même enseigne ET même numéro dans les cartes existantes OU déjà dans toAdd
+                // vérif doublon : même enseigne ET même numéro dans les cartes existantes OU déjà dans toAdd
                 boolean isDuplicate = false;
                 for (Card ec : existing) {
                     if (ec.getEnseigneName().equalsIgnoreCase(enseigneName)
@@ -297,7 +306,7 @@ public class DataManager {
                     continue;
                 }
 
-                // Vérifier si même enseigne (numéro différent) → ajouter "new" si description vide
+                // new si desc vide
                 boolean sameEnseigne = false;
                 for (Card ec : existing) {
                     if (ec.getEnseigneName().equalsIgnoreCase(enseigneName)) {
@@ -327,6 +336,7 @@ public class DataManager {
                 );
                 newCard.setUsageCount(usageCount);
                 newCard.setDateAdded(dateAdded);
+                newCard.setColor(color); // ← nouveau
                 toAdd.add(newCard);
             }
 
