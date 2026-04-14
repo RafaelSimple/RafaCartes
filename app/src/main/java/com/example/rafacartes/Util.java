@@ -34,7 +34,7 @@ public class Util {
 
     public static void showColorPickerDialog(Context context, int currentColor, Consumer<Integer> onColorSelected) {
         List<ColorItem> colors = new ArrayList<>();
-        colors.add(new ColorItem("Blanc", Color.parseColor("##FFFFFF")));
+        colors.add(new ColorItem("Blanc", Color.parseColor("#FFFFFF")));
         colors.add(new ColorItem("Noir", Color.parseColor("#000000")));
         colors.add(new ColorItem("Rose-Armand Thierry", Color.parseColor("#C40160")));
         colors.add(new ColorItem("Rouge-Auchan", Color.parseColor("#FF0015")));
