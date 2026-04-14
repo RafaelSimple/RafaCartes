@@ -34,16 +34,28 @@ public class Util {
 
     public static void showColorPickerDialog(Context context, int currentColor, Consumer<Integer> onColorSelected) {
         List<ColorItem> colors = new ArrayList<>();
-        colors.add(new ColorItem("Rouge", Color.parseColor("#E53935")));
-        colors.add(new ColorItem("Violet", Color.parseColor("#8E24AA")));
-        colors.add(new ColorItem("Bleu", Color.parseColor("#1E88E5")));
-        colors.add(new ColorItem("Vert foncé", Color.parseColor("#00897B")));
-        colors.add(new ColorItem("Orange", Color.parseColor("#F4511E")));
+        colors.add(new ColorItem("Blanc", Color.parseColor("##FFFFFF")));
+        colors.add(new ColorItem("Noir", Color.parseColor("#000000")));
+        colors.add(new ColorItem("Rose-Armand Thierry", Color.parseColor("#C40160")));
+        colors.add(new ColorItem("Rouge-Auchan", Color.parseColor("#FF0015")));
+        colors.add(new ColorItem("Rouge-DPAM", Color.parseColor("#E11838")));
+        colors.add(new ColorItem("Jaune-Bricorama", Color.parseColor("#FFF101")));
+        colors.add(new ColorItem("Jaune-CarteSourire", Color.parseColor("#FFED00")));
+        colors.add(new ColorItem("Bleu-Lidl", Color.parseColor("#2250A9")));
+        colors.add(new ColorItem("Bleu-Decathlon", Color.parseColor("#3743BA")));
+        colors.add(new ColorItem("Bleu-Ikea", Color.parseColor("#0057AD")));
+        colors.add(new ColorItem("Bleu-Makro", Color.parseColor("#002470")));
+        colors.add(new ColorItem("Bleu-Norauto", Color.parseColor("#002B6F")));
+        colors.add(new ColorItem("Or-Fnac", Color.parseColor("#EBB200")));
         colors.add(new ColorItem("Indigo", Color.parseColor("#3949AB")));
         colors.add(new ColorItem("Cyan", Color.parseColor("#00ACC1")));
-        colors.add(new ColorItem("Vert clair", Color.parseColor("#7CB342")));
+        colors.add(new ColorItem("Vert clair-DrMax", Color.parseColor("#6EBA3A")));
+        colors.add(new ColorItem("VertOlive-YvesRocher", Color.parseColor("#89993E")));
         colors.add(new ColorItem("Jaune", Color.parseColor("#FFB300")));
         colors.add(new ColorItem("Gris", Color.parseColor("#757575")));
+        colors.add(new ColorItem("Bordeau-Nicolas", Color.parseColor("#9A1E3A")));
+        colors.add(new ColorItem("Rouge-Penny", Color.parseColor("#CD1414")));
+
 
 
         ArrayAdapter<ColorItem> adapter = new ArrayAdapter<ColorItem>(context, 0, colors) {
