@@ -1,8 +1,12 @@
 package com.example.rafacartes;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import androidx.core.graphics.ColorUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +52,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         if (desc != null && !desc.isEmpty()) {
             holder.tvDescription.setVisibility(View.VISIBLE);
             holder.tvDescription.setText(desc);
+            int couleurCarte = card.getColor();
+            double luminance = ColorUtils.calculateLuminance(couleurCarte);
+            if (luminance < 0.5) {
+                holder.tvDescription.setTextColor(Color.WHITE);
+            } else {
+                holder.tvDescription.setTextColor(Color.BLACK);
+            }
         } else {
             holder.tvDescription.setVisibility(View.GONE);
         }
@@ -77,7 +88,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         }
 
         holder.itemView.setBackgroundTintList(
-                android.content.res.ColorStateList.valueOf(cardColor));
+                ColorStateList.valueOf(cardColor));
 
         holder.itemView.setOnClickListener(v -> listener.onCardClick(card));
     }

@@ -27,14 +27,13 @@
             android:scaleType="fitCenter"
             android:visibility="visible" />
 
-        <!-- Fallback : nom de l'enseigne -->
         <TextView
             android:id="@+id/tv_no_logo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="19sp"
+            android:textSize="21sp"
             android:textStyle="bold"
             android:textColor="?attr/colorOnSurface"
             android:visibility="gone" />
@@ -46,7 +45,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="14sp"
-            android:textColor="?attr/colorOnSecondaryContainer"
+            android:textStyle="bold"
             android:maxLines="1"
             android:ellipsize="end"
             android:paddingTop="4dp"
